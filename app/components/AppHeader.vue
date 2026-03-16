@@ -65,7 +65,7 @@ const isMobileMenuOpen = useState('isMobileMenuOpen', () => false)
       />
 
       <!-- Notifications -->
-      <UButton color="neutral" variant="ghost" icon="i-lucide-bell" class="relative">
+      <UButton to="/notifications" color="neutral" variant="ghost" icon="i-lucide-bell" class="relative">
         <UBadge color="primary" class="absolute -top-1 -right-1 leading-none p-1 w-4 h-4 flex items-center justify-center rounded-full text-[10px]" size="sm">4</UBadge>
       </UButton>
 
