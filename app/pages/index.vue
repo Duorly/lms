@@ -4,9 +4,9 @@ definePageMeta({
 })
 
 const modules = [
-  { title: 'HTML / CSS Basics', description: 'Master the foundation of the web.', progress: 100, locked: false },
-  { title: 'JavaScript Essentials', description: 'Learn core programming concepts.', progress: 40, locked: false },
-  { title: 'Advanced Vue.js', description: 'Deep dive into reactive interfaces.', progress: 0, locked: true }
+  { id: 'html-css-basics', title: 'HTML / CSS Basics', description: 'Master the foundation of the web.', progress: 100, locked: false },
+  { id: 'javascript-essentials', title: 'JavaScript Essentials', description: 'Learn core programming concepts.', progress: 40, locked: false },
+  { id: 'advanced-vue', title: 'Advanced Vue.js', description: 'Deep dive into reactive interfaces.', progress: 0, locked: true }
 ]
 
 const challenges = [
@@ -84,13 +84,14 @@ const recentBadges = [
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <UCard v-for="(mod, i) in modules" :key="i" 
-          class="bg-white dark:bg-[#0A1220] border-slate-200 dark:border-slate-800 transition-all duration-300"
-          :class="{
-            'opacity-60 grayscale-[50%]': mod.locked,
-            'ring-1 ring-violet-500/30 dark:ring-violet-500/50 shadow-[0_0_20px_rgba(0,218,255,0.1)] hover:shadow-[0_0_30px_rgba(0,218,255,0.2)] hover:-translate-y-1': !mod.locked && mod.progress > 0 && mod.progress < 100,
-            'ring-1 ring-emerald-500/20 dark:ring-emerald-500/30': mod.progress === 100
-          }">
+        <NuxtLink v-for="(mod, i) in modules" :key="i" :to="mod.locked ? '#' : `/modules/${mod.id}`" class="block outline-none">
+          <UCard 
+            class="bg-white dark:bg-[#0A1220] border-slate-200 dark:border-slate-800 transition-all duration-300 h-full"
+            :class="{
+              'opacity-60 grayscale-[50%] cursor-not-allowed': mod.locked,
+              'ring-1 ring-violet-500/30 dark:ring-violet-500/50 shadow-[0_0_20px_rgba(0,218,255,0.1)] hover:shadow-[0_0_30px_rgba(0,218,255,0.2)] hover:-translate-y-1 cursor-pointer': !mod.locked && mod.progress > 0 && mod.progress < 100,
+              'ring-1 ring-emerald-500/20 dark:ring-emerald-500/30 cursor-pointer': mod.progress === 100
+            }">
           <div class="flex items-start justify-between mb-4">
             <div class="w-12 h-12 rounded-lg flex items-center justify-center"
               :class="{
@@ -101,7 +102,7 @@ const recentBadges = [
               <UIcon :name="mod.locked ? 'i-lucide-lock' : mod.progress === 100 ? 'i-lucide-check-circle' : 'i-lucide-book-open'" class="w-6 h-6" />
             </div>
             
-            <UBadge v-if="mod.progress === 100" color="green" variant="subtle" size="sm">Completed</UBadge>
+            <UBadge v-if="mod.progress === 100" color="success" variant="subtle" size="sm">Completed</UBadge>
             <UBadge v-else-if="mod.locked" color="neutral" variant="subtle" size="sm">Locked</UBadge>
             <UBadge v-else color="primary" variant="subtle" size="sm">In Progress</UBadge>
           </div>
@@ -126,6 +127,7 @@ const recentBadges = [
              </div>
           </div>
         </UCard>
+        </NuxtLink>
       </div>
     </div>
 
