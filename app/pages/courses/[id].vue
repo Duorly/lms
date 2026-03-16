@@ -18,7 +18,7 @@ const course = {
   level: 'Advanced',
   updates: 'Last updated 2 days ago',
   iconBg: 'bg-cyan-500/10 dark:bg-cyan-400/10',
-  iconText: 'text-cyan-600 dark:text-cyan-400',
+  iconText: 'text-cyan-700 dark:text-cyan-400',
   instructor: {
     name: 'Sarah Chen',
     role: 'Senior Staff Engineer',
@@ -207,7 +207,7 @@ const modules = [
       <div class="lg:col-span-1 space-y-6">
         
         <!-- Action Card -->
-        <UCard class="bg-white dark:bg-[#0A1220] border-slate-200 dark:border-slate-800 shadow-sm sticky top-24" :ui="{ body: 'p-6', ring: 'ring-1 ring-slate-200 dark:ring-slate-800' }">
+        <UCard class="bg-white dark:bg-[#0A1220] border-slate-200 dark:border-slate-800 shadow-sm sticky top-24 ring-1 ring-slate-200 dark:ring-slate-800" :ui="{ body: 'p-6' }">
            
            <div v-if="course.progress > 0" class="mb-6">
              <div class="flex justify-between text-sm font-bold mb-2">
@@ -257,9 +257,9 @@ const modules = [
         </UCard>
         
         <!-- Instructor Card -->
-        <UCard class="bg-white dark:bg-[#0A1220] border-slate-200 dark:border-slate-800 shadow-sm" :ui="{ body: 'p-6', ring: 'ring-1 ring-slate-200 dark:ring-slate-800' }">
+        <UCard class="bg-white dark:bg-[#0A1220] border-slate-200 dark:border-slate-800 shadow-sm ring-1 ring-slate-200 dark:ring-slate-800" :ui="{ body: 'p-6' }">
            <h3 class="font-bold text-slate-900 dark:text-white mb-4 flex items-center gap-2">
-             <UIcon name="i-lucide-graduation-cap" class="text-cyan-500" /> Your Instructor
+             <UIcon name="i-lucide-graduation-cap" class="text-cyan-600 dark:text-cyan-500" /> Your Instructor
            </h3>
            <div class="flex items-center gap-4 mb-4">
              <UAvatar :src="course.instructor.avatar" :alt="course.instructor.name" size="lg" class="ring-2 ring-slate-100 dark:ring-slate-800" />
@@ -271,7 +271,7 @@ const modules = [
            <p class="text-sm text-slate-500 leading-relaxed mb-4">
              Author of 5 bestselling courses. Specializes in scalable architecture and modern frontend frameworks. Active community mentor.
            </p>
-           <UButton variant="soft" color="gray" block size="sm" class="font-semibold">View Profile</UButton>
+           <UButton variant="soft" color="neutral" block size="sm" class="font-semibold">View Profile</UButton>
         </UCard>
 
       </div>

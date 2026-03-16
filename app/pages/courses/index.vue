@@ -18,7 +18,7 @@ const courses = [
     progress: 100,
     status: 'Completed',
     iconBg: 'bg-emerald-500/10 dark:bg-emerald-400/10',
-    iconText: 'text-emerald-500 dark:text-emerald-400'
+    iconText: 'text-emerald-600 dark:text-emerald-400'
   },
   {
     id: 2,
@@ -31,7 +31,7 @@ const courses = [
     progress: 40,
     status: 'In Progress',
     iconBg: 'bg-cyan-500/10 dark:bg-cyan-400/10',
-    iconText: 'text-cyan-500 dark:text-cyan-400'
+    iconText: 'text-cyan-600 dark:text-cyan-400'
   },
   {
     id: 3,
@@ -44,7 +44,7 @@ const courses = [
     progress: 0,
     status: 'Available',
     iconBg: 'bg-slate-500/10 dark:bg-slate-400/10',
-    iconText: 'text-slate-500 dark:text-slate-400'
+    iconText: 'text-slate-600 dark:text-slate-400'
   },
   {
     id: 4,
@@ -57,7 +57,7 @@ const courses = [
     progress: 0,
     status: 'Available',
     iconBg: 'bg-purple-500/10 dark:bg-purple-400/10',
-    iconText: 'text-purple-500 dark:text-purple-400'
+    iconText: 'text-purple-600 dark:text-purple-400'
   },
   {
     id: 5,
@@ -70,7 +70,7 @@ const courses = [
     progress: 15,
     status: 'In Progress',
     iconBg: 'bg-blue-500/10 dark:bg-blue-400/10',
-    iconText: 'text-blue-500 dark:text-blue-400'
+    iconText: 'text-blue-600 dark:text-blue-400'
   },
   {
     id: 6,
@@ -83,7 +83,7 @@ const courses = [
     progress: 0,
     status: 'Available',
     iconBg: 'bg-orange-500/10 dark:bg-orange-400/10',
-    iconText: 'text-orange-500 dark:text-orange-400'
+    iconText: 'text-orange-600 dark:text-orange-400'
   }
 ]
 </script>
@@ -122,8 +122,8 @@ const courses = [
       <UCard 
         v-for="course in courses" 
         :key="course.id"
-        class="flex flex-col h-full bg-white dark:bg-[#0A1220] border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-md transition-shadow duration-300 relative group overflow-hidden"
-        :ui="{ body: { padding: '', base: 'flex-1 flex flex-col p-6' }, ring: 'ring-1 ring-slate-200 dark:ring-slate-800' }"
+        class="flex flex-col h-full bg-white dark:bg-[#0A1220] border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-md transition-shadow duration-300 relative group overflow-hidden ring-1 ring-slate-200 dark:ring-slate-800"
+        :ui="{ body: { padding: '', base: 'flex-1 flex flex-col p-6' } }"
       >
         <!-- Card Header -->
         <div class="flex justify-between items-start mb-4">
@@ -167,7 +167,7 @@ const courses = [
           <!-- Progress Bar or Action -->
           <div v-if="course.progress > 0" class="flex flex-col gap-2 mt-auto">
             <div class="flex justify-between text-xs font-semibold">
-              <span :class="course.progress === 100 ? 'text-emerald-500 dark:text-emerald-400' : 'text-cyan-500 dark:text-cyan-400'">
+              <span :class="course.progress === 100 ? 'text-emerald-600 dark:text-emerald-400' : 'text-cyan-600 dark:text-cyan-400'">
                 Progress
               </span>
               <span class="text-slate-900 dark:text-white">{{ course.progress }}%</span>
