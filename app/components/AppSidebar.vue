@@ -50,7 +50,7 @@ const items = [
     :class="isCollapsed ? 'w-20 px-3 py-4' : 'w-64 p-4'">
     
     <div class="flex items-center gap-3 overflow-hidden" :class="isCollapsed ? 'justify-center px-0' : 'px-2'">
-      <div class="h-8 w-8 rounded-lg bg-cyan-500/10 flex items-center justify-center text-cyan-600 dark:text-cyan-400 shrink-0 transition-transform duration-300"
+      <div class="h-8 w-8 rounded-lg bg-violet-500/10 flex items-center justify-center text-violet-600 dark:text-violet-400 shrink-0 transition-transform duration-300"
            :class="isCollapsed ? 'scale-110' : ''">
         <UIcon name="i-lucide-shield" class="w-5 h-5" />
       </div>
@@ -86,7 +86,7 @@ const items = [
     <template #content>
       <div class="h-full bg-white dark:bg-[#050C16] flex flex-col gap-8 p-4">
         <div class="flex items-center gap-3 px-2">
-          <div class="h-8 w-8 rounded-lg bg-cyan-500/10 flex items-center justify-center text-cyan-600 dark:text-cyan-400 shrink-0">
+          <div class="h-8 w-8 rounded-lg bg-violet-500/10 flex items-center justify-center text-violet-600 dark:text-violet-400 shrink-0">
             <UIcon name="i-lucide-shield" class="w-5 h-5" />
           </div>
           <span class="font-bold tracking-tight text-slate-900 dark:text-white uppercase text-sm whitespace-nowrap">

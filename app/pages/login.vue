@@ -38,8 +38,8 @@ const login = async () => {
     <!-- Mobile Header (Hidden on Desktop) -->
     <div class="flex lg:hidden items-center gap-3 mb-10">
       <div
-        class="h-10 w-10 rounded-xl bg-cyan-500/10 flex items-center justify-center border border-cyan-500/30 shadow-[0_0_20px_rgba(0,218,255,0.2)]">
-        <UIcon name="i-lucide-shield-check" class="w-5 h-5 text-cyan-400" />
+        class="h-10 w-10 rounded-xl bg-violet-500/10 flex items-center justify-center border border-violet-500/30 shadow-[0_0_20px_rgba(0,218,255,0.2)]">
+        <UIcon name="i-lucide-shield-check" class="w-5 h-5 text-violet-400" />
       </div>
       <span class="text-xl font-bold tracking-tight text-slate-900 dark:text-white uppercase mt-1">Praetoria</span>
     </div>
@@ -54,20 +54,20 @@ const login = async () => {
       <UFormGroup label="Adresse e-mail" required>
         <UInput v-model="form.email" type="email" size="xl" icon="i-heroicons-envelope" placeholder="nom@entreprise.com"
           color="neutral" variant="outline" class="w-full"
-          :ui="{ base: 'bg-white hover:bg-slate-50 dark:bg-[#0A1220] dark:hover:bg-slate-900 text-slate-900 dark:text-white ring-1 ring-slate-300 dark:ring-slate-800 focus:ring-cyan-500 transition-colors shadow-none w-full' }" />
+          :ui="{ base: 'bg-white hover:bg-slate-50 dark:bg-[#0A1220] dark:hover:bg-slate-900 text-slate-900 dark:text-white ring-1 ring-slate-300 dark:ring-slate-800 focus:ring-violet-500 transition-colors shadow-none w-full' }" />
       </UFormGroup>
 
       <UFormGroup required>
         <template #label>
           <div class="flex justify-between items-center w-full">
             <span>Mot de passe</span>
-            <a href="#" class="text-xs font-semibold text-cyan-500 hover:text-cyan-400 transition-colors">Mot de passe
+            <a href="#" class="text-xs font-semibold text-violet-500 hover:text-violet-400 transition-colors">Mot de passe
               oublié ?</a>
           </div>
         </template>
         <UInput v-model="form.password" type="password" size="xl" icon="i-heroicons-lock-closed" placeholder="••••••••"
           color="neutral" variant="outline" class="w-full"
-          :ui="{ base: 'bg-white hover:bg-slate-50 dark:bg-[#0A1220] dark:hover:bg-slate-900 text-slate-900 dark:text-white ring-1 ring-slate-300 dark:ring-slate-800 focus:ring-cyan-500 transition-colors shadow-none w-full' }" />
+          :ui="{ base: 'bg-white hover:bg-slate-50 dark:bg-[#0A1220] dark:hover:bg-slate-900 text-slate-900 dark:text-white ring-1 ring-slate-300 dark:ring-slate-800 focus:ring-violet-500 transition-colors shadow-none w-full' }" />
       </UFormGroup>
 
       <UAlert v-if="error" color="error" variant="soft" title="Échec de l'authentification" :description="error"
@@ -95,7 +95,7 @@ const login = async () => {
 
     <p class="text-center text-sm text-slate-500 mt-14">
       Vous n'avez pas de compte ? <a href="#"
-        class="font-semibold text-slate-900 dark:text-white hover:text-cyan-500 dark:hover:text-cyan-400 transition-colors">S'inscrire maintenant</a>
+        class="font-semibold text-slate-900 dark:text-white hover:text-violet-500 dark:hover:text-violet-400 transition-colors">S'inscrire maintenant</a>
     </p>
 
   </div>

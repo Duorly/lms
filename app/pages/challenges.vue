@@ -20,9 +20,9 @@ const challenges = [
     progress: 2,
     total: 3,
     status: 'active',
-    iconBg: 'bg-cyan-500/10 dark:bg-cyan-400/10',
-    iconText: 'text-cyan-600 dark:text-cyan-400',
-    borderGlow: 'group-hover:border-cyan-500/20'
+    iconBg: 'bg-violet-500/10 dark:bg-violet-400/10',
+    iconText: 'text-violet-600 dark:text-violet-400',
+    borderGlow: 'group-hover:border-violet-500/20'
   },
   {
     id: 2,

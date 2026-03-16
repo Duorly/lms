@@ -83,13 +83,13 @@ const getRankIcon = (rank: number) => {
               :key="user.id" 
               :class="[
                 'transition-all duration-300 group cursor-pointer relative', 
-                user.id === currentUser.id ? 'bg-cyan-50/50 dark:bg-cyan-900/20' : 'hover:bg-slate-50 dark:hover:bg-[#121E32]'
+                user.id === currentUser.id ? 'bg-violet-50/50 dark:bg-violet-900/20' : 'hover:bg-slate-50 dark:hover:bg-[#121E32]'
               ]"
             >
               <!-- Rank -->
               <td class="py-4 px-6 text-center relative">
                 <!-- Tech hover line -->
-                <div class="absolute inset-y-0 left-0 w-1 bg-cyan-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300 shadow-[0_0_8px_rgba(6,182,212,0.6)]"></div>
+                <div class="absolute inset-y-0 left-0 w-1 bg-violet-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300 shadow-[0_0_8px_rgba(6,182,212,0.6)]"></div>
                 
                 <div :class="['inline-flex items-center justify-center w-8 h-8 rounded-full font-bold transition-transform group-hover:scale-110', getRankColor(user.rank)]">
                   <UIcon v-if="getRankIcon(user.rank)" :name="getRankIcon(user.rank)!" class="w-5 h-5" />
@@ -101,13 +101,13 @@ const getRankIcon = (rank: number) => {
               <td class="py-4 px-6">
                 <div class="flex items-center gap-3">
                   <div class="relative">
-                    <UAvatar :src="user.avatar" :alt="user.name" size="md" class="group-hover:ring-2 ring-cyan-500/50 transition-all duration-300" />
-                    <div v-if="user.id === currentUser.id" class="absolute -bottom-1 -right-1 w-3.5 h-3.5 bg-cyan-500 border-2 border-white dark:border-[#0A1220] rounded-full shadow-[0_0_5px_rgba(6,182,212,0.8)]"></div>
+                    <UAvatar :src="user.avatar" :alt="user.name" size="md" class="group-hover:ring-2 ring-violet-500/50 transition-all duration-300" />
+                    <div v-if="user.id === currentUser.id" class="absolute -bottom-1 -right-1 w-3.5 h-3.5 bg-violet-500 border-2 border-white dark:border-[#0A1220] rounded-full shadow-[0_0_5px_rgba(6,182,212,0.8)]"></div>
                   </div>
                   <div>
-                    <div class="font-bold text-slate-900 dark:text-white flex items-center gap-2 group-hover:text-cyan-600 dark:group-hover:text-cyan-400 transition-colors">
+                    <div class="font-bold text-slate-900 dark:text-white flex items-center gap-2 group-hover:text-violet-600 dark:group-hover:text-violet-400 transition-colors">
                       {{ user.name }}
-                      <span v-if="user.id === currentUser.id" class="text-xs font-medium px-2 py-0.5 rounded-full bg-cyan-100 dark:bg-cyan-900/30 text-cyan-600 dark:text-cyan-400 border border-cyan-200 dark:border-cyan-800">You</span>
+                      <span v-if="user.id === currentUser.id" class="text-xs font-medium px-2 py-0.5 rounded-full bg-violet-100 dark:bg-violet-900/30 text-violet-600 dark:text-violet-400 border border-violet-200 dark:border-violet-800">You</span>
                     </div>
                     <div class="text-xs text-slate-500 group-hover:text-slate-400 transition-colors">{{ user.role }}</div>
                   </div>
@@ -150,7 +150,7 @@ const getRankIcon = (rank: number) => {
                 <UAvatar :src="currentUser.avatar" :alt="currentUser.name" size="md" />
                 <div class="font-bold text-slate-900 dark:text-white flex items-center gap-2">
                   {{ currentUser.name }}
-                  <span class="text-xs font-medium px-2 py-0.5 rounded-full bg-cyan-100 dark:bg-cyan-900/30 text-cyan-600 dark:text-cyan-400">You</span>
+                  <span class="text-xs font-medium px-2 py-0.5 rounded-full bg-violet-100 dark:bg-violet-900/30 text-violet-600 dark:text-violet-400">You</span>
                 </div>
              </div>
          </div>

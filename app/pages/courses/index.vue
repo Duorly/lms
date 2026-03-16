@@ -30,8 +30,8 @@ const courses = [
     duration: '8h 15m',
     progress: 40,
     status: 'In Progress',
-    iconBg: 'bg-cyan-500/10 dark:bg-cyan-400/10',
-    iconText: 'text-cyan-600 dark:text-cyan-400'
+    iconBg: 'bg-violet-500/10 dark:bg-violet-400/10',
+    iconText: 'text-violet-600 dark:text-violet-400'
   },
   {
     id: 3,
@@ -167,7 +167,7 @@ const courses = [
           <!-- Progress Bar or Action -->
           <div v-if="course.progress > 0" class="flex flex-col gap-2 mt-auto">
             <div class="flex justify-between text-xs font-semibold">
-              <span :class="course.progress === 100 ? 'text-emerald-600 dark:text-emerald-400' : 'text-cyan-600 dark:text-cyan-400'">
+              <span :class="course.progress === 100 ? 'text-emerald-600 dark:text-emerald-400' : 'text-violet-600 dark:text-violet-400'">
                 Progress
               </span>
               <span class="text-slate-900 dark:text-white">{{ course.progress }}%</span>
@@ -183,14 +183,14 @@ const courses = [
             block
             color="primary"
             variant="soft"
-            class="mt-2 font-semibold tracking-wide dark:hover:bg-cyan-400/20"
+            class="mt-2 font-semibold tracking-wide dark:hover:bg-violet-400/20"
           >
             Start Course
           </UButton>
         </div>
 
         <!-- Hover glow effect (subtle) -> for premium feel -->
-        <div class="absolute inset-0 border-2 border-transparent group-hover:border-cyan-500/20 dark:group-hover:border-cyan-400/20 rounded-xl transition-colors duration-300 pointer-events-none z-10"></div>
+        <div class="absolute inset-0 border-2 border-transparent group-hover:border-violet-500/20 dark:group-hover:border-violet-400/20 rounded-xl transition-colors duration-300 pointer-events-none z-10"></div>
       </UCard>
     </div>
   </div>

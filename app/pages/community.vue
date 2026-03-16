@@ -98,13 +98,13 @@ const topContributors = [
         <UCard 
           v-for="post in discussions" 
           :key="post.id"
-          class="bg-white dark:bg-[#0A1220] border-slate-200 dark:border-slate-800 shadow-sm hover:border-cyan-500/50 dark:hover:border-cyan-400/50 transition-colors duration-300 group cursor-pointer ring-1 ring-slate-200 dark:ring-slate-800"
+          class="bg-white dark:bg-[#0A1220] border-slate-200 dark:border-slate-800 shadow-sm hover:border-violet-500/50 dark:hover:border-violet-400/50 transition-colors duration-300 group cursor-pointer ring-1 ring-slate-200 dark:ring-slate-800"
           :ui="{ body: 'p-5' }"
         >
           <div class="flex gap-4 sm:gap-6">
             <!-- Upvotes (Desktop) -->
             <div class="hidden sm:flex flex-col items-center gap-1 min-w-[3rem]">
-              <UButton icon="i-lucide-chevron-up" color="neutral" variant="ghost" class="text-slate-400 hover:text-cyan-600 dark:hover:text-cyan-400" />
+              <UButton icon="i-lucide-chevron-up" color="neutral" variant="ghost" class="text-slate-400 hover:text-violet-600 dark:hover:text-violet-400" />
               <span class="font-bold text-slate-700 dark:text-slate-300">{{ post.upvotes }}</span>
               <UButton icon="i-lucide-chevron-down" color="neutral" variant="ghost" class="text-slate-400 hover:text-red-600 dark:hover:text-red-500" />
             </div>
@@ -122,7 +122,7 @@ const topContributors = [
               </div>
 
               <!-- Title -->
-              <h3 class="text-lg font-bold text-slate-900 dark:text-white group-hover:text-cyan-600 dark:group-hover:text-cyan-400 transition-colors mb-3">
+              <h3 class="text-lg font-bold text-slate-900 dark:text-white group-hover:text-violet-600 dark:group-hover:text-violet-400 transition-colors mb-3">
                 {{ post.title }}
               </h3>
 
@@ -136,10 +136,10 @@ const topContributors = [
               <!-- Mobile Upvotes & Replies -->
               <div class="flex items-center justify-between sm:justify-start sm:gap-6">
                 <div class="flex sm:hidden items-center gap-2">
-                   <UButton icon="i-lucide-arrow-up" color="neutral" variant="ghost" size="xs" class="text-slate-400 hover:text-cyan-600 dark:hover:text-cyan-400" />
+                   <UButton icon="i-lucide-arrow-up" color="neutral" variant="ghost" size="xs" class="text-slate-400 hover:text-violet-600 dark:hover:text-violet-400" />
                    <span class="text-sm font-bold">{{ post.upvotes }}</span>
                 </div>
-                <div class="flex items-center gap-2 text-sm font-medium text-slate-500 dark:text-slate-400 group-hover:text-cyan-600 dark:group-hover:text-cyan-400 transition-colors">
+                <div class="flex items-center gap-2 text-sm font-medium text-slate-500 dark:text-slate-400 group-hover:text-violet-600 dark:group-hover:text-violet-400 transition-colors">
                   <UIcon name="i-lucide-message-square" class="w-4 h-4" />
                   <span>{{ post.replies }} replies</span>
                 </div>
@@ -167,7 +167,7 @@ const topContributors = [
                <div class="flex-1 overflow-hidden">
                  <div class="font-semibold text-sm text-slate-900 dark:text-white truncate">{{ contributor.name }}</div>
                  <div class="text-xs text-slate-500 flex items-center gap-1">
-                    <span :class="contributor.role === 'Mentor' ? 'text-amber-600 dark:text-amber-500' : 'text-cyan-600 dark:text-cyan-500'">{{ contributor.role }}</span>
+                    <span :class="contributor.role === 'Mentor' ? 'text-amber-600 dark:text-amber-500' : 'text-violet-600 dark:text-violet-500'">{{ contributor.role }}</span>
                  </div>
                </div>
                <div class="text-sm font-bold text-slate-700 dark:text-slate-300 bg-slate-100 dark:bg-slate-800 px-2 py-1 rounded-md">
@@ -181,12 +181,12 @@ const topContributors = [
         <UCard class="bg-white dark:bg-[#0A1220] border-slate-200 dark:border-slate-800 ring-1 ring-slate-200 dark:ring-slate-800" :ui="{ header: 'px-5 py-4', body: 'px-5 pb-5 pt-0' }">
           <template #header>
             <h3 class="font-bold flex items-center gap-2 text-slate-900 dark:text-white">
-              <UIcon name="i-lucide-trending-up" class="text-cyan-600 dark:text-cyan-500" /> Trending Topics
+              <UIcon name="i-lucide-trending-up" class="text-violet-600 dark:text-violet-500" /> Trending Topics
             </h3>
           </template>
           <div class="flex flex-wrap gap-2 mt-2">
             <div v-for="tag in trendingTags" :key="tag.name" class="flex items-center justify-between w-full p-2 hover:bg-slate-50 dark:hover:bg-slate-800/50 rounded-lg cursor-pointer transition-colors group">
-              <span class="text-sm font-medium text-slate-700 dark:text-slate-300 group-hover:text-cyan-600 dark:group-hover:text-cyan-500 transition-colors"># {{ tag.name }}</span>
+              <span class="text-sm font-medium text-slate-700 dark:text-slate-300 group-hover:text-violet-600 dark:group-hover:text-violet-500 transition-colors"># {{ tag.name }}</span>
               <span class="text-xs text-slate-500 dark:text-slate-400 bg-slate-100 dark:bg-slate-800 px-2 py-0.5 rounded-full">{{ tag.count }}</span>
             </div>
           </div>

@@ -17,8 +17,8 @@ const course = {
   status: 'In Progress',
   level: 'Advanced',
   updates: 'Last updated 2 days ago',
-  iconBg: 'bg-cyan-500/10 dark:bg-cyan-400/10',
-  iconText: 'text-cyan-700 dark:text-cyan-400',
+  iconBg: 'bg-violet-500/10 dark:bg-violet-400/10',
+  iconText: 'text-violet-700 dark:text-violet-400',
   instructor: {
     name: 'Sarah Chen',
     role: 'Senior Staff Engineer',
@@ -85,7 +85,7 @@ const modules = [
         <!-- Video Player Placeholder -->
         <div class="aspect-video bg-slate-900 rounded-2xl border border-slate-800 relative overflow-hidden group shadow-lg flex items-center justify-center cursor-pointer">
           <!-- Abstract bg effect -->
-          <div class="absolute inset-0 bg-gradient-to-br from-cyan-900/40 to-slate-900 opacity-50 group-hover:opacity-70 transition-opacity duration-500"></div>
+          <div class="absolute inset-0 bg-gradient-to-br from-violet-900/40 to-slate-900 opacity-50 group-hover:opacity-70 transition-opacity duration-500"></div>
           
           <div class="relative z-10 flex flex-col items-center gap-4 transition-transform duration-500 group-hover:scale-110">
             <div class="w-20 h-20 bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center border border-white/20 shadow-xl">
@@ -103,7 +103,7 @@ const modules = [
                 </div>
                 <!-- Progress track -->
                 <div class="w-full h-1.5 bg-white/20 rounded-full overflow-hidden">
-                   <div class="h-full bg-cyan-500 w-0 relative">
+                   <div class="h-full bg-violet-500 w-0 relative">
                      <div class="absolute right-0 top-1/2 -translate-y-1/2 w-3 h-3 bg-white rounded-full shadow"></div>
                    </div>
                 </div>
@@ -160,7 +160,7 @@ const modules = [
                 :key="lIdx"
                 :class="[
                   'flex items-center justify-between p-4 rounded-xl transition-colors cursor-pointer group',
-                  lesson.active ? 'bg-cyan-50 dark:bg-cyan-900/10 border border-cyan-200 dark:border-cyan-800/50' : 'hover:bg-slate-50 dark:hover:bg-slate-800/30 border border-transparent'
+                  lesson.active ? 'bg-violet-50 dark:bg-violet-900/10 border border-violet-200 dark:border-violet-800/50' : 'hover:bg-slate-50 dark:hover:bg-slate-800/30 border border-transparent'
                 ]"
               >
                 <div class="flex items-center gap-4">
@@ -168,20 +168,20 @@ const modules = [
                     :class="[
                       'w-8 h-8 rounded-full flex items-center justify-center shrink-0 border-2 transition-colors',
                       lesson.completed ? 'bg-emerald-50 border-emerald-500 dark:bg-emerald-500/10 dark:border-emerald-500/50' :
-                      lesson.active ? 'bg-cyan-50 border-cyan-500 dark:bg-cyan-500/10 dark:border-cyan-500/50' :
+                      lesson.active ? 'bg-violet-50 border-violet-500 dark:bg-violet-500/10 dark:border-violet-500/50' :
                       'border-slate-300 dark:border-slate-700 text-slate-400'
                     ]"
                    >
                      <UIcon v-if="lesson.completed" name="i-lucide-check" class="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
-                     <UIcon v-else-if="lesson.active" name="i-lucide-play" class="w-3.5 h-3.5 text-cyan-600 dark:text-cyan-400 ml-0.5" />
+                     <UIcon v-else-if="lesson.active" name="i-lucide-play" class="w-3.5 h-3.5 text-violet-600 dark:text-violet-400 ml-0.5" />
                      <span v-else class="text-xs font-bold">{{ lIdx + 1 }}</span>
                    </div>
                    
                    <div>
-                     <div :class="['font-medium', lesson.active ? 'text-cyan-700 dark:text-cyan-400 font-bold' : 'text-slate-700 dark:text-slate-300 group-hover:text-cyan-600 dark:group-hover:text-cyan-400 transition-colors']">
+                     <div :class="['font-medium', lesson.active ? 'text-violet-700 dark:text-violet-400 font-bold' : 'text-slate-700 dark:text-slate-300 group-hover:text-violet-600 dark:group-hover:text-violet-400 transition-colors']">
                        {{ lesson.title }}
                      </div>
-                     <div v-if="lesson.active" class="text-xs text-cyan-600 dark:text-cyan-500 font-semibold mt-0.5">Playing Next</div>
+                     <div v-if="lesson.active" class="text-xs text-violet-600 dark:text-violet-500 font-semibold mt-0.5">Playing Next</div>
                    </div>
                 </div>
                 
@@ -212,7 +212,7 @@ const modules = [
            <div v-if="course.progress > 0" class="mb-6">
              <div class="flex justify-between text-sm font-bold mb-2">
                 <span class="text-slate-900 dark:text-white">Your Progress</span>
-                <span class="text-cyan-600 dark:text-cyan-400">{{ course.progress }}%</span>
+                <span class="text-violet-600 dark:text-violet-400">{{ course.progress }}%</span>
              </div>
              <UMeter :value="course.progress" size="md" color="primary" />
              <p class="text-xs text-slate-500 mt-2 text-center font-medium">You've completed 4 of {{ course.lessons }} lessons</p>
@@ -259,13 +259,13 @@ const modules = [
         <!-- Instructor Card -->
         <UCard class="bg-white dark:bg-[#0A1220] border-slate-200 dark:border-slate-800 shadow-sm ring-1 ring-slate-200 dark:ring-slate-800" :ui="{ body: 'p-6' }">
            <h3 class="font-bold text-slate-900 dark:text-white mb-4 flex items-center gap-2">
-             <UIcon name="i-lucide-graduation-cap" class="text-cyan-600 dark:text-cyan-500" /> Your Instructor
+             <UIcon name="i-lucide-graduation-cap" class="text-violet-600 dark:text-violet-500" /> Your Instructor
            </h3>
            <div class="flex items-center gap-4 mb-4">
              <UAvatar :src="course.instructor.avatar" :alt="course.instructor.name" size="lg" class="ring-2 ring-slate-100 dark:ring-slate-800" />
              <div>
                <div class="font-bold text-slate-900 dark:text-white">{{ course.instructor.name }}</div>
-               <div class="text-xs font-semibold text-cyan-600 dark:text-cyan-500">{{ course.instructor.role }}</div>
+               <div class="text-xs font-semibold text-violet-600 dark:text-violet-500">{{ course.instructor.role }}</div>
              </div>
            </div>
            <p class="text-sm text-slate-500 leading-relaxed mb-4">

@@ -30,8 +30,8 @@ const notifications = ref([
     time: 'Il y a 5h',
     read: false,
     icon: 'i-lucide-message-square',
-    color: 'text-cyan-500',
-    bg: 'bg-cyan-500/10',
+    color: 'text-violet-500',
+    bg: 'bg-violet-500/10',
     avatar: 'https://i.pravatar.cc/150?u=a042581f4e29026704d'
   },
   {
@@ -112,7 +112,7 @@ const toggleReadStatus = (id: number) => {
         variant="ghost" 
         icon="i-lucide-check-check" 
         @click="markAllAsRead"
-        class="text-sm font-semibold hover:text-cyan-500 self-start sm:self-auto"
+        class="text-sm font-semibold hover:text-violet-500 self-start sm:self-auto"
       >
         Tout marquer comme lu
       </UButton>
@@ -145,13 +145,13 @@ const toggleReadStatus = (id: number) => {
             'group relative flex gap-4 p-5 rounded-2xl border transition-all duration-300',
             notification.read 
               ? 'bg-white dark:bg-[#0A1220] border-slate-200 dark:border-slate-800/60 shadow-sm opacity-75 hover:opacity-100' 
-              : 'bg-cyan-50/50 dark:bg-cyan-900/10 border-cyan-200 dark:border-cyan-800/50 shadow-md ring-1 ring-cyan-500/20'
+              : 'bg-violet-50/50 dark:bg-violet-900/10 border-violet-200 dark:border-violet-800/50 shadow-md ring-1 ring-violet-500/20'
           ]"
         >
           <!-- Unread Dot Indicator -->
           <div 
             v-if="!notification.read" 
-            class="absolute top-6 left-2 w-2 h-2 rounded-full bg-cyan-500 shadow-[0_0_8px_rgba(0,218,255,0.6)]"
+            class="absolute top-6 left-2 w-2 h-2 rounded-full bg-violet-500 shadow-[0_0_8px_rgba(0,218,255,0.6)]"
           ></div>
 
           <!-- Icon or Avatar -->

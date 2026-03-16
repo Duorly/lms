@@ -54,9 +54,9 @@ const badges = [
     tier: 'Platinum',
     unlocked: false,
     unlockedAt: null,
-    iconBg: 'bg-cyan-500/10 dark:bg-cyan-400/10',
-    iconText: 'text-cyan-600 dark:text-cyan-400',
-    borderGlow: 'group-hover:border-cyan-500/30'
+    iconBg: 'bg-violet-500/10 dark:bg-violet-400/10',
+    iconText: 'text-violet-600 dark:text-violet-400',
+    borderGlow: 'group-hover:border-violet-500/30'
   },
   {
     id: 5,
@@ -102,9 +102,9 @@ const badges = [
     tier: 'Platinum',
     unlocked: false,
     unlockedAt: null,
-    iconBg: 'bg-cyan-500/10 dark:bg-cyan-400/10',
-    iconText: 'text-cyan-600 dark:text-cyan-400',
-    borderGlow: 'group-hover:border-cyan-500/30'
+    iconBg: 'bg-violet-500/10 dark:bg-violet-400/10',
+    iconText: 'text-violet-600 dark:text-violet-400',
+    borderGlow: 'group-hover:border-violet-500/30'
   },
   {
     id: 9,
@@ -170,7 +170,7 @@ const formatDate = (dateString: string | null) => {
       </div>
       <div class="bg-white dark:bg-[#0A1220] border border-slate-200 dark:border-slate-800 rounded-2xl p-4 flex flex-col items-center justify-center">
         <span class="text-3xl font-bold text-slate-900 dark:text-white">{{ badges.filter(b => b.tier === 'Platinum').length }}</span>
-        <span class="text-xs font-semibold uppercase tracking-wider text-cyan-500 mt-1">Platinum Tier</span>
+        <span class="text-xs font-semibold uppercase tracking-wider text-violet-500 mt-1">Platinum Tier</span>
       </div>
        <div class="bg-white dark:bg-[#0A1220] border border-slate-200 dark:border-slate-800 rounded-2xl p-4 flex flex-col items-center justify-center">
         <span class="text-3xl font-bold text-slate-900 dark:text-white">{{ badges.filter(b => b.tier === 'Gold').length }}</span>
@@ -220,7 +220,7 @@ const formatDate = (dateString: string | null) => {
                 badge.tier === 'Bronze' ? 'text-amber-600 dark:text-amber-500' : 
                 badge.tier === 'Silver' ? 'text-slate-600 dark:text-slate-400' : 
                 badge.tier === 'Gold' ? 'text-yellow-600 dark:text-yellow-400' : 
-                badge.tier === 'Platinum' ? 'text-cyan-600 dark:text-cyan-400' : 
+                badge.tier === 'Platinum' ? 'text-violet-600 dark:text-violet-400' : 
                 'text-fuchsia-600 dark:text-fuchsia-400'
            ]">
              {{ badge.tier }}

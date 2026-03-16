@@ -46,7 +46,7 @@ const notifications = ref({
             :class="[
               'flex items-center gap-3 px-4 py-2.5 rounded-xl text-sm font-medium transition-colors whitespace-nowrap',
               activeTab === tab.key 
-                ? 'bg-cyan-50 dark:bg-cyan-500/10 text-cyan-600 dark:text-cyan-400' 
+                ? 'bg-violet-50 dark:bg-violet-500/10 text-violet-600 dark:text-violet-400' 
                 : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800/50 hover:text-slate-900 dark:hover:text-white'
             ]"
           >
@@ -111,7 +111,7 @@ const notifications = ref({
              <UFormField label="Password" class="mb-6">
                 <UInput type="password" value="********" color="neutral" variant="outline" icon="i-lucide-lock" disabled class="w-full" />
                 <template #help>
-                   <UButton variant="link" color="primary" class="p-0 mt-2 font-semibold hover:text-cyan-400">Change Password</UButton>
+                   <UButton variant="link" color="primary" class="p-0 mt-2 font-semibold hover:text-violet-400">Change Password</UButton>
                 </template>
              </UFormField>
 
@@ -132,7 +132,7 @@ const notifications = ref({
         <div v-else-if="activeTab === 'notifications'" class="space-y-8 animate-fade-in">
            <UCard class="bg-white dark:bg-[#0A1220] border-slate-200 dark:border-slate-800 ring-1 ring-slate-200 dark:ring-slate-800 shadow-sm" :ui="{ body: 'p-6 sm:p-8' }">
              <h2 class="text-xl font-bold text-slate-900 dark:text-white mb-6 flex items-center gap-2">
-               <UIcon name="i-lucide-mail" class="text-cyan-500" />
+               <UIcon name="i-lucide-mail" class="text-violet-500" />
                Email Notifications
              </h2>
              <div class="space-y-6">
@@ -165,7 +165,7 @@ const notifications = ref({
         <!-- Billing Settings -->
         <div v-else-if="activeTab === 'billing'" class="space-y-8 animate-fade-in">
            <UCard class="bg-gradient-to-br from-slate-900 to-slate-800 border-0 shadow-xl relative overflow-hidden" :ui="{ body: 'p-8' }">
-             <div class="absolute -right-12 -top-12 w-48 h-48 bg-cyan-500 rounded-full blur-3xl opacity-20 pointer-events-none"></div>
+             <div class="absolute -right-12 -top-12 w-48 h-48 bg-violet-500 rounded-full blur-3xl opacity-20 pointer-events-none"></div>
              <div class="absolute -left-12 -bottom-12 w-48 h-48 bg-emerald-500 rounded-full blur-3xl opacity-10 pointer-events-none"></div>
              
              <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center relative z-10 gap-4">
@@ -184,7 +184,7 @@ const notifications = ref({
 
            <div>
              <h3 class="font-bold text-slate-900 dark:text-white mt-8 mb-4 flex items-center gap-2">
-               <UIcon name="i-lucide-wallet" class="text-cyan-500" />
+               <UIcon name="i-lucide-wallet" class="text-violet-500" />
                Payment Methods
              </h3>
              <UCard class="bg-white dark:bg-[#0A1220] border-slate-200 dark:border-slate-800 ring-1 ring-slate-200 dark:ring-slate-800 shadow-sm" :ui="{ body: 'p-6' }">
