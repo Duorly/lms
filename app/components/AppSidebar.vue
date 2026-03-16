@@ -44,7 +44,7 @@ const items = [
 
 <template>
   <aside
-    class="flex-shrink-0 min-h-screen border-r border-slate-200 dark:border-slate-800 bg-white dark:bg-[#050C16] flex flex-col gap-8 transition-[width,padding] duration-300 relative"
+    class="flex-shrink-0 h-screen border-r border-slate-200 dark:border-slate-800 bg-white dark:bg-[#050C16] flex flex-col gap-8 transition-[width,padding] duration-300 relative"
     :class="isCollapsed ? 'w-20 px-3 py-4' : 'w-64 p-4'">
     
     <div class="flex items-center gap-3 overflow-hidden" :class="isCollapsed ? 'justify-center px-0' : 'px-2'">
