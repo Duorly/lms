@@ -3,7 +3,7 @@
     <AppSidebar />
     <div class="flex-1 flex flex-col h-screen relative overflow-hidden">
       <AppHeader />
-      <main class="flex-1 p-6 md:p-8 overflow-y-auto">
+      <main class="flex-1 p-4 sm:p-6 lg:p-8 overflow-y-auto">
         <slot />
       </main>
     </div>

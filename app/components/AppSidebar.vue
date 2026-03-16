@@ -2,6 +2,7 @@
 import { ref } from 'vue'
 
 const isCollapsed = ref(false)
+const isMobileMenuOpen = useState('isMobileMenuOpen', () => false)
 
 const items = [
   {
@@ -43,8 +44,9 @@ const items = [
 </script>
 
 <template>
+  <!-- Desktop Sidebar -->
   <aside
-    class="flex-shrink-0 h-screen border-r border-slate-200 dark:border-slate-800 bg-white dark:bg-[#050C16] flex flex-col gap-8 transition-[width,padding] duration-300 relative"
+    class="hidden lg:flex flex-shrink-0 h-screen border-r border-slate-200 dark:border-slate-800 bg-white dark:bg-[#050C16] flex-col gap-8 transition-[width,padding] duration-300 relative"
     :class="isCollapsed ? 'w-20 px-3 py-4' : 'w-64 p-4'">
     
     <div class="flex items-center gap-3 overflow-hidden" :class="isCollapsed ? 'justify-center px-0' : 'px-2'">
@@ -78,4 +80,28 @@ const items = [
       @click="isCollapsed = !isCollapsed"
     />
   </aside>
+
+  <!-- Mobile Sidebar -->
+  <USlideover v-model:open="isMobileMenuOpen" side="left">
+    <template #content>
+      <div class="h-full bg-white dark:bg-[#050C16] flex flex-col gap-8 p-4">
+        <div class="flex items-center gap-3 px-2">
+          <div class="h-8 w-8 rounded-lg bg-cyan-500/10 flex items-center justify-center text-cyan-600 dark:text-cyan-400 shrink-0">
+            <UIcon name="i-lucide-shield" class="w-5 h-5" />
+          </div>
+          <span class="font-bold tracking-tight text-slate-900 dark:text-white uppercase text-sm whitespace-nowrap">
+            Praetoria Learning
+          </span>
+        </div>
+
+        <UNavigationMenu 
+          orientation="vertical" 
+          :items="items" 
+          class="flex-1 mt-4"
+          :ui="{ list: 'space-y-1', link: 'py-3 text-sm font-medium transition-colors' }" 
+          @click="isMobileMenuOpen = false"
+        />
+      </div>
+    </template>
+  </USlideover>
 </template>
