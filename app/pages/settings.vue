@@ -57,128 +57,152 @@ const notifications = ref({
       </div>
 
       <!-- Main Content Area -->
-      <div class="flex-1">
+      <div class="flex-1 max-w-3xl">
         <!-- Profile Settings -->
         <div v-if="activeTab === 'profile'" class="space-y-8 animate-fade-in">
-          <UCard class="bg-white dark:bg-[#0A1220] border-slate-200 dark:border-slate-800 shadow-sm" :ui="{ body: 'p-6 sm:p-8', ring: 'ring-1 ring-slate-200 dark:ring-slate-800' }">
+          <UCard class="bg-white dark:bg-[#0A1220] border-slate-200 dark:border-slate-800 ring-1 ring-slate-200 dark:ring-slate-800 shadow-sm" :ui="{ body: 'p-6 sm:p-8' }">
             <h2 class="text-xl font-bold text-slate-900 dark:text-white mb-6">Public Profile</h2>
             
-            <div class="flex items-center gap-6 mb-8">
-               <UAvatar src="https://i.pravatar.cc/150?u=a042581f4e29026704d" alt="Alex Rivera" size="3xl" class="border-4 border-white dark:border-[#0A1220] shadow-sm" />
+            <div class="flex flex-col sm:flex-row items-start sm:items-center gap-6 mb-8">
+               <div class="relative group">
+                 <UAvatar src="https://i.pravatar.cc/150?u=a042581f4e29026704d" alt="Alex Rivera" size="3xl" class="border-4 border-white dark:border-[#0A1220] ring-1 ring-slate-200 dark:ring-slate-800 shadow-sm transition-transform group-hover:scale-105" />
+                 <div class="absolute inset-0 bg-black/40 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity cursor-pointer">
+                   <UIcon name="i-lucide-camera" class="w-6 h-6 text-white" />
+                 </div>
+               </div>
                <div class="flex gap-3">
-                 <UButton color="gray" variant="solid">Change Avatar</UButton>
-                 <UButton color="red" variant="ghost">Remove</UButton>
+                 <UButton color="neutral" variant="solid" icon="i-lucide-upload">Upload new</UButton>
+                 <UButton color="error" variant="ghost" icon="i-lucide-trash-2">Remove</UButton>
                </div>
             </div>
 
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6">
-              <UFormGroup label="First Name" required>
-                <UInput v-model="profileForm.firstName" placeholder="Jane" />
-              </UFormGroup>
-              <UFormGroup label="Last Name" required>
-                <UInput v-model="profileForm.lastName" placeholder="Doe" />
-              </UFormGroup>
+              <UFormField label="First Name" required>
+                <UInput v-model="profileForm.firstName" color="neutral" variant="outline" class="w-full" />
+              </UFormField>
+              <UFormField label="Last Name" required>
+                <UInput v-model="profileForm.lastName" color="neutral" variant="outline" class="w-full" />
+              </UFormField>
             </div>
 
-             <UFormGroup label="Professional Title" class="mb-6">
-                <UInput v-model="profileForm.title" placeholder="e.g. Frontend Developer" />
-             </UFormGroup>
+             <UFormField label="Professional Title" class="mb-6">
+                <UInput v-model="profileForm.title" color="neutral" variant="outline" icon="i-lucide-briefcase" class="w-full" />
+             </UFormField>
 
-            <UFormGroup label="Bio" description="Brief description for your profile. URLs are hyperlinked." class="mb-6">
-              <UTextarea v-model="profileForm.bio" resize autoresize :rows="4" />
-            </UFormGroup>
+            <UFormField label="Bio" description="Brief description for your profile. URLs are hyperlinked." class="mb-6">
+              <UTextarea v-model="profileForm.bio" color="neutral" variant="outline" resize autoresize :rows="4" class="w-full" />
+            </UFormField>
 
-            <div class="flex justify-end pt-4 border-t border-slate-100 dark:border-slate-800/50">
-               <UButton color="primary" variant="solid" class="font-bold px-6">Save Changes</UButton>
+            <div class="flex justify-end pt-6 mt-2 border-t border-slate-200 dark:border-slate-800/50">
+               <UButton color="primary" variant="solid" class="font-bold px-8 shadow-[0_0_15px_rgba(0,218,255,0.2)] hover:shadow-[0_0_25px_rgba(0,218,255,0.4)] transition-all">Save Changes</UButton>
             </div>
           </UCard>
         </div>
 
         <!-- Account Settings -->
         <div v-else-if="activeTab === 'account'" class="space-y-8 animate-fade-in">
-           <UCard class="bg-white dark:bg-[#0A1220] border-slate-200 dark:border-slate-800 shadow-sm" :ui="{ body: 'p-6 sm:p-8', ring: 'ring-1 ring-slate-200 dark:ring-slate-800' }">
+           <UCard class="bg-white dark:bg-[#0A1220] border-slate-200 dark:border-slate-800 ring-1 ring-slate-200 dark:ring-slate-800 shadow-sm" :ui="{ body: 'p-6 sm:p-8' }">
              <h2 class="text-xl font-bold text-slate-900 dark:text-white mb-6">Account Details</h2>
              
-             <UFormGroup label="Email Address" required class="mb-6">
-                <UInput v-model="profileForm.email" type="email" icon="i-lucide-mail" />
-             </UFormGroup>
+             <UFormField label="Email Address" required class="mb-6">
+                <UInput v-model="profileForm.email" type="email" color="neutral" variant="outline" icon="i-lucide-mail" class="w-full" />
+             </UFormField>
 
-             <UFormGroup label="Password" class="mb-6">
-                <UInput type="password" value="********" disabled />
+             <UFormField label="Password" class="mb-6">
+                <UInput type="password" value="********" color="neutral" variant="outline" icon="i-lucide-lock" disabled class="w-full" />
                 <template #help>
-                   <UButton variant="link" color="primary" class="p-0 mt-1">Change Password</UButton>
+                   <UButton variant="link" color="primary" class="p-0 mt-2 font-semibold hover:text-cyan-400">Change Password</UButton>
                 </template>
-             </UFormGroup>
+             </UFormField>
 
              <!-- Danger Zone -->
              <div class="mt-12 pt-8 border-t border-red-200 dark:border-red-900/30">
-                <h3 class="text-lg font-bold text-red-600 dark:text-red-400 mb-2">Danger Zone</h3>
-                <p class="text-sm text-slate-500 mb-4">Once you delete your account, there is no going back. Please be certain.</p>
-                <UButton color="red" variant="outline" class="font-bold">Delete Account</UButton>
+                <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 bg-red-50 dark:bg-red-950/20 p-5 rounded-xl border border-red-100 dark:border-red-900/50">
+                  <div>
+                    <h3 class="text-lg font-bold text-red-600 dark:text-red-400 mb-1">Delete Account</h3>
+                    <p class="text-sm text-red-500/80 dark:text-red-400/80">Once you delete your account, there is no going back. Please be certain.</p>
+                  </div>
+                  <UButton color="error" variant="outline" class="font-bold whitespace-nowrap bg-white dark:bg-transparent">Delete Account</UButton>
+                </div>
              </div>
            </UCard>
         </div>
 
         <!-- Notifications Settings -->
         <div v-else-if="activeTab === 'notifications'" class="space-y-8 animate-fade-in">
-           <UCard class="bg-white dark:bg-[#0A1220] border-slate-200 dark:border-slate-800 shadow-sm" :ui="{ body: 'p-6 sm:p-8', ring: 'ring-1 ring-slate-200 dark:ring-slate-800' }">
-             <h2 class="text-xl font-bold text-slate-900 dark:text-white mb-6">Email Notifications</h2>
+           <UCard class="bg-white dark:bg-[#0A1220] border-slate-200 dark:border-slate-800 ring-1 ring-slate-200 dark:ring-slate-800 shadow-sm" :ui="{ body: 'p-6 sm:p-8' }">
+             <h2 class="text-xl font-bold text-slate-900 dark:text-white mb-6 flex items-center gap-2">
+               <UIcon name="i-lucide-mail" class="text-cyan-500" />
+               Email Notifications
+             </h2>
              <div class="space-y-6">
-               <UFormGroup label="Course Updates" description="Get notified about new courses and major curriculum changes.">
-                 <div class="mt-2"><UToggle v-model="notifications.emailCourseUpdates" color="primary" /></div>
-               </UFormGroup>
-               <UFormGroup label="Community Replies" description="Receive emails when someone replies to your forum posts.">
-                 <div class="mt-2"><UToggle v-model="notifications.emailCommunityReplies" color="primary" /></div>
-               </UFormGroup>
-               <UFormGroup label="Challenges & Hackathons" description="Weekly digest of upcoming coding challenges.">
-                 <div class="mt-2"><UToggle v-model="notifications.emailChallenges" color="primary" /></div>
-               </UFormGroup>
+               <UFormField label="Course Updates" description="Get notified about new courses and major curriculum changes.">
+                 <div class="mt-2"><UToggle v-model="notifications.emailCourseUpdates" color="primary" size="lg" /></div>
+               </UFormField>
+               <UFormField label="Community Replies" description="Receive emails when someone replies to your forum posts.">
+                 <div class="mt-2"><UToggle v-model="notifications.emailCommunityReplies" color="primary" size="lg" /></div>
+               </UFormField>
+               <UFormField label="Challenges & Hackathons" description="Weekly digest of upcoming coding challenges.">
+                 <div class="mt-2"><UToggle v-model="notifications.emailChallenges" color="primary" size="lg" /></div>
+               </UFormField>
              </div>
              
-             <h2 class="text-xl font-bold text-slate-900 dark:text-white mt-10 mb-6 border-t border-slate-100 dark:border-slate-800/50 pt-8">Push Notifications</h2>
+             <h2 class="text-xl font-bold text-slate-900 dark:text-white mt-12 mb-6 border-t border-slate-200 dark:border-slate-800/50 pt-8 flex items-center gap-2">
+               <UIcon name="i-lucide-smartphone" class="text-emerald-500" />
+               Push Notifications
+             </h2>
              <div class="space-y-6">
-               <UFormGroup label="Mentions" description="Notify me when someone @mentions me in the community.">
-                 <div class="mt-2"><UToggle v-model="notifications.pushMentions" color="primary" /></div>
-               </UFormGroup>
-               <UFormGroup label="Direct Messages" description="Notify me when I receive a direct message.">
-                 <div class="mt-2"><UToggle v-model="notifications.pushDirectMessages" color="primary" /></div>
-               </UFormGroup>
+               <UFormField label="Mentions" description="Notify me when someone @mentions me in the community.">
+                 <div class="mt-2"><UToggle v-model="notifications.pushMentions" color="primary" size="lg" /></div>
+               </UFormField>
+               <UFormField label="Direct Messages" description="Notify me when I receive a direct message.">
+                 <div class="mt-2"><UToggle v-model="notifications.pushDirectMessages" color="primary" size="lg" /></div>
+               </UFormField>
              </div>
            </UCard>
         </div>
 
         <!-- Billing Settings -->
         <div v-else-if="activeTab === 'billing'" class="space-y-8 animate-fade-in">
-           <UCard class="bg-gradient-to-br from-slate-900 to-slate-800 text-white border-0 shadow-lg relative overflow-hidden" :ui="{ body: 'p-8' }">
-             <div class="absolute -right-12 -top-12 w-48 h-48 bg-cyan-500 rounded-full blur-3xl opacity-20"></div>
+           <UCard class="bg-gradient-to-br from-slate-900 to-slate-800 border-0 shadow-xl relative overflow-hidden" :ui="{ body: 'p-8' }">
+             <div class="absolute -right-12 -top-12 w-48 h-48 bg-cyan-500 rounded-full blur-3xl opacity-20 pointer-events-none"></div>
+             <div class="absolute -left-12 -bottom-12 w-48 h-48 bg-emerald-500 rounded-full blur-3xl opacity-10 pointer-events-none"></div>
              
-             <div class="flex justify-between items-start relative z-10">
+             <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center relative z-10 gap-4">
                 <div>
-                  <h2 class="text-2xl font-bold text-white mb-2">Praetoria Pro</h2>
-                  <p class="text-slate-300">Your next billing date is <span class="text-white font-bold">April 15, 2024</span>.</p>
+                  <h2 class="text-2xl font-bold text-white mb-1">Praetoria Pro</h2>
+                  <p class="text-slate-300 text-sm">Your next billing date is <span class="text-white font-bold">April 15, 2024</span>.</p>
                 </div>
-                <UBadge color="cyan" variant="solid" class="font-bold">Active</UBadge>
+                <UBadge color="primary" variant="solid" class="font-bold shadow-[0_0_10px_rgba(0,218,255,0.3)]">Active</UBadge>
              </div>
              
-             <div class="mt-8 pt-6 border-t border-slate-700 flex gap-4 relative z-10">
-               <UButton color="white" variant="solid" class="font-bold text-slate-900">Manage Subscription</UButton>
-               <UButton color="gray" variant="ghost" class="text-slate-300 hover:text-white">View Invoices</UButton>
+             <div class="mt-8 pt-6 border-t border-slate-700/50 flex flex-wrap gap-4 relative z-10">
+               <UButton color="neutral" variant="solid" class="font-bold text-slate-900 bg-white hover:bg-slate-50 border-0" icon="i-lucide-credit-card">Manage Subscription</UButton>
+               <UButton color="neutral" variant="ghost" class="text-slate-300 hover:text-white hover:bg-slate-700/50" icon="i-lucide-receipt" :ui="{ base: 'transition-colors' }">View Invoices</UButton>
              </div>
            </UCard>
 
-           <h3 class="font-bold text-slate-900 dark:text-white mt-8 mb-4">Payment Methods</h3>
-           <UCard class="bg-white dark:bg-[#0A1220] border-slate-200 dark:border-slate-800 shadow-sm" :ui="{ body: 'p-6', ring: 'ring-1 ring-slate-200 dark:ring-slate-800' }">
-             <div class="flex items-center justify-between">
-                <div class="flex items-center gap-4">
-                  <div class="w-12 h-8 bg-slate-100 dark:bg-slate-800 rounded flex items-center justify-center text-sm font-bold text-slate-500">VISA</div>
-                  <div>
-                    <div class="font-medium text-slate-900 dark:text-white">Visa ending in 4242</div>
-                    <div class="text-xs text-slate-500">Expires 12/26</div>
+           <div>
+             <h3 class="font-bold text-slate-900 dark:text-white mt-8 mb-4 flex items-center gap-2">
+               <UIcon name="i-lucide-wallet" class="text-cyan-500" />
+               Payment Methods
+             </h3>
+             <UCard class="bg-white dark:bg-[#0A1220] border-slate-200 dark:border-slate-800 ring-1 ring-slate-200 dark:ring-slate-800 shadow-sm" :ui="{ body: 'p-6' }">
+               <div class="flex items-center justify-between">
+                  <div class="flex items-center gap-4">
+                    <div class="w-14 h-9 bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-md flex items-center justify-center text-sm font-bold text-slate-500 dark:text-slate-400">VISA</div>
+                    <div>
+                      <div class="font-medium text-slate-900 dark:text-white flex items-center gap-2">
+                        Visa ending in 4242
+                        <UBadge color="neutral" variant="subtle" size="sm">Default</UBadge>
+                      </div>
+                      <div class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">Expires 12/26</div>
+                    </div>
                   </div>
-                </div>
-                <UButton color="gray" variant="ghost" size="sm">Edit</UButton>
-             </div>
-           </UCard>
+                  <UButton color="neutral" variant="ghost" size="sm" icon="i-lucide-more-vertical" aria-label="More options" />
+               </div>
+             </UCard>
+           </div>
         </div>
       </div>
     </div>
