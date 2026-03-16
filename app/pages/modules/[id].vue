@@ -125,6 +125,7 @@ const progressPercentage = computed(() => {
               color="primary" 
               variant="soft" 
               class="w-full sm:w-28 justify-center font-bold"
+              :to="`/lessons/${lesson.id}`"
             >
               Revoir
             </UButton>
@@ -134,6 +135,7 @@ const progressPercentage = computed(() => {
               color="primary" 
               variant="solid" 
               class="w-full sm:w-28 justify-center font-bold shadow-[0_0_15px_rgba(139,92,246,0.3)]"
+              :to="`/lessons/${lesson.id}`"
             >
               Continuer
             </UButton>
